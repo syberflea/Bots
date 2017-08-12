@@ -6,7 +6,8 @@ url = "https://api.telegram.org/bot330318626:AAFtv8sB6cs8PQ5Tp88pB0_4Ea46aE6ahBk
 
 
 def get_updates_json(request):
-    response = requests.get(request + 'getUpdates')
+    params = {'timeout': 100, 'offset': None}
+    response = requests.get(request + 'getUpdates', data=params)
     return response.json()
 
 
@@ -24,9 +25,6 @@ def send_mess(chat, text):
     response = requests.post(url + 'sendMessage', data=params)
     return response
 
-chat_id = get_chat_id(last_update(get_updates_json(url)))
-#
-send_mess(chat_id, 'Your message goes here')
 
 def main():
     update_id = last_update(get_updates_json(url))['update_id']
