@@ -2,6 +2,7 @@ import json
 import requests
 import time
 import urllib
+from os import environ
 
 TOKEN = "330318626:AAFtv8sB6cs8PQ5Tp88pB0_4Ea46aE6ahBk"
 URL = "https://api.telegram.org/bot{}/".format(TOKEN)
@@ -57,6 +58,7 @@ def send_message(text, chat_id):
 
 def main():
     last_update_id = None
+    application.listen(environ["PORT"])
     while True:
         updates = get_updates(last_update_id)
         if len(updates["result"]) > 0:
