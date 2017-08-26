@@ -58,7 +58,7 @@ def send_message(text, chat_id):
 
 def main():
     last_update_id = None
-    application.listen(environ["PORT"])
+    # application.listen(environ["PORT"])
     while True:
         updates = get_updates(last_update_id)
         if len(updates["result"]) > 0:
