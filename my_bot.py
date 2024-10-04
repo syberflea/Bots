@@ -4,7 +4,7 @@ import time
 import urllib
 from os import environ
 
-TOKEN = "330318626:AAFtv8sB6cs8PQ5Tp88pB0_4Ea46aE6ahBk"
+TOKEN = ""
 URL = "https://api.telegram.org/bot{}/".format(TOKEN)
 
 
